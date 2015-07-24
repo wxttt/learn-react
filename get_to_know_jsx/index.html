@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>尝试下使用JSX~</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/jsx">
+function testFunction(){
+    return 'test test'
+}
+
+function generateClassName(){
+    return 'testClass'
+}
+
+var Divider = React.createClass({
+    render: function(){
+        return (
+            <div className="divider" testA="123">
+                <h3 className={generateClassName()}>{this.props.children[0]}</h3>
+                <h2>{testFunction()}</h2>
+                <p>{this.state}</p>
+            </div>
+        );
+    }
+})
+
+React.render(
+    <Divider>
+        <p>aaaaa</p>
+        <p>bbbb</p>
+        </Divider>, document.getElementById('example')
+)
+
+
+</script>
+</body>
+</html>
